@@ -1,0 +1,416 @@
+@import "modularized-normalize-less";
+@import "config";
+
+* {
+    font-family: @font;
+}
+
+
+body {
+    width: 100%;
+    min-width: 590px;
+    display: flex;
+    justify-content: center;
+    background-color: @lightgray;
+}
+
+#app {
+    width: auto;
+
+    #logo {
+        margin-top: 18px;
+        width: @logoW;
+        height: @logoH;
+
+        @media screen and (min-width: (@widthM + 1px)) and (max-width: @widthL) {
+            margin-left: 5%;
+        }
+
+        @media screen and (max-width: @widthM) {
+            display: block;
+            margin: 20px auto;
+        }
+    }
+
+    #box {
+        display: flex;
+        flex-wrap: wrap;
+        width: @boxW;
+        height: @boxH;
+        margin-top: 28px;
+
+        @media screen and (max-width: @widthL) {
+            width: 90%;
+            min-width: 520px;
+            height: auto;
+            margin-left: 5%;
+        }
+
+        ul {
+            display: flex;
+            flex-grow: 1;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                padding-top: 24px;
+                height: 74px - 24px;
+                border-bottom: 1px @mediumgray solid;
+                text-transform: uppercase;
+                color: @gray;
+                font-size: 11px;
+                background-color: @lightgray;
+                cursor: pointer;
+
+                &:nth-child(1) {
+                    background: url("../img/icon-car.png") 17px 41px no-repeat;
+                    padding-left: 70px;
+                    width: 107px;
+                }
+
+                &:nth-child(2) {
+                    background: url("../img/icon-bike.png") 16px 38px no-repeat;
+                    padding-left: 58px;
+                    width: 92px;
+                }
+
+                b {
+                    font-size: 21px;
+                    font-weight: 400;
+                    display: block;
+                }
+
+                &.active {
+                    height: 71px - 24px;
+                    border-bottom: 4px @red solid;
+                    cursor: default;
+
+                    b {
+                        color: @red;
+                    }
+                }
+            }
+        }
+
+        #btnSell {
+            width: 188px;
+            height: 37px;
+            margin-bottom: 16px;
+            color: @orange;
+            background-color: @lightgray;
+            border: 2px @orange solid;
+            border-radius: 3px;
+            align-self: flex-end;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+        }
+
+        form {
+            flex-grow: 3;
+            padding: 26px 52px;
+            width: 100%;
+            height: 187px;
+            background-color: @white;
+            -webkit-box-shadow: 1px 1px 4px 0px rgba(139,139,150,0.2);
+            -moz-box-shadow: 1px 1px 4px 0px rgba(139,139,150,0.2);
+            box-shadow: 1px 1px 4px 0px rgba(139,139,150,0.2);
+
+            @media screen and (max-width: @widthL) {
+                height: auto;
+            }
+
+            #formContainer {
+                width: 100%;
+                display: block;
+                margin: 0 auto;
+
+                @media screen and (min-width: (@widthM + 1px)) and (max-width: @widthL) {
+                    width: 620px;
+                }
+
+                @media screen and (max-width: @widthM) {
+                    width: 410px;
+                }
+            }
+
+            input[type=checkbox] {
+                width: 20px;
+                height: 15px;
+                margin: 0 8px 0 0;
+                cursor: pointer;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    cursor: pointer;
+                    width: 15px;
+                    height: 15px;
+                    border: 2px @mediumgray solid;
+                    border-radius: 3px;
+                    background-color: @white;
+                }
+
+                &:checked:after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    width: 4px;
+                    height: 7px;
+                    border-right: 3px @red solid;
+                    border-bottom: 3px @red solid;
+                    transform: rotate(45deg);
+                    border-radius: 3px;
+                    margin: 3px 0 0 6px;
+                }
+            }
+
+            input[type=text] {
+                width: 202px;
+                height: 34px;
+                padding: 0 20px 0 76px;
+                border: 2px @mediumgray solid;
+                border-right: 0;
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+                background: @white url("../img/icon-pin.png") 9px 6px no-repeat;
+                margin: 0;
+                font-size: 13px;
+                font-weight: 600;
+                line-height: 34px;
+                color: @darkgray;
+                outline: none;
+            }
+
+            select {
+                width: 100px;
+                height: 38px;
+                border: 2px @mediumgray solid;
+                border-radius: 3px;
+                background-color: @white;
+                margin: 0 0 13px 0;
+                font-size: 13px;
+                font-weight: 600;
+                line-height: 34px;
+                color: @darkgray;
+                outline: none;
+
+                &:focus {
+                    border-color: @darkgray;
+                }
+
+                &:disabled {
+                    color: @gray;
+                }
+
+                &#radius {
+                    width: 108px;
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                    padding-left: 38px;
+                    margin-right: 13px;
+
+                    @media screen and (max-width: @widthM) {
+                        margin-right: 0;
+                    }
+                }
+
+                &#brand {
+                    width: 197px;
+                    padding-left: 52px;
+                    margin-right: 14px;
+
+                    @media screen and (min-width: (@widthM + 1px)) and (max-width: @widthL) {
+                        margin-right: 0;
+                    }
+                }
+
+                &#model {
+                    width: 197px;
+                    padding-left: 60px;
+
+                    @media screen and (min-width: (@widthM + 1px)) and (max-width: @widthL) {
+                        margin-right: 14px;
+                    }
+
+                    @media screen and (max-width: @widthM) {
+                        margin-right: 0;
+                    }
+                }
+
+                &#year {
+                    width: 197px;
+                    padding-left: 60px;
+                    margin-right: 14px;
+                }
+
+                &#price {
+                    width: 197px;
+                    padding-left: 60px;
+                    margin-right: 14px;
+                    @media screen and (max-width: @widthL) {
+                        margin-right: 0;
+                    }
+                }
+
+                &#version {
+                    width: 407px;
+                    padding-left: 56px;
+                    @media screen and (max-width: @widthL) {
+                        display: block;
+                    }
+                }
+
+                option {
+                    padding: 0;
+                }
+            }
+
+            label {
+                color: @gray;
+                font-size: 13px;
+                font-weight: 500;
+
+                &.lblCheckbox {
+                    cursor: pointer;
+
+                    &:nth-child(2) {
+                        padding-right: 37px;
+                    }
+
+                    &:nth-child(4):after {
+                        width: 100%;
+                        height: 13px;
+                        content: "";
+                        display: block;
+                        clear: both;
+                    }
+                }
+
+                &.lblInput,
+                &.lblSelect {
+                    position: absolute;
+                    margin-left: 34px;
+                }
+
+                &.lblInput {
+                    margin-top: 12px;
+                }
+
+                &.lblSelect {
+                    margin-left: 8px;
+                    line-height: 38px;
+
+                    &:nth-child(13) {
+                        width: 100px;
+                    }
+
+                    &:nth-child(15) {
+                        width: 105px;
+                    }
+
+                    @media screen and (min-width: (@widthL + 1px)) {
+                        &:nth-child(13) {
+                            display: block;
+                        }
+                    }
+
+                    @media screen and (min-width: (@widthM + 1px)) and (max-width: @widthL) {
+                        &:nth-child(11),
+                        &:nth-child(17) {
+                            display: block;
+                        }
+                    }
+
+                    @media screen and (max-width: @widthM) {
+                        &:nth-child(9),
+                        &:nth-child(13),
+                        &:nth-child(17) {
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            #btnAdvanced {
+                width: 132px;
+                height: auto;
+                color: @red;
+                background-color: transparent;
+                border: none;
+                padding: 0;
+                margin-top: 22px;
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+                outline: none;
+                text-transform: capitalize;
+
+                &:before {
+                    content: "> ";
+                }
+
+                @media screen and (min-width: (@widthM + 1px)) and (max-width: @widthL) {
+                    float: left;
+                    margin: 18px 0 0 0;
+                }
+
+                @media screen and (max-width: @widthM) {
+                    margin: 2px 0 0 0;
+                }
+            }
+
+            #btnReset {
+                width: 93px;
+                height: auto;
+                color: @gray;
+                background-color: transparent;
+                border: none;
+                padding: 0;
+                margin: 22px 0 0 288px;
+                font-size: 13px;
+                cursor: pointer;
+                outline: none;
+                text-transform: capitalize;
+
+                @media screen and (min-width: (@widthM + 1px)) and (max-width: @widthL) {
+                    margin: 0 47px;
+                }
+
+                @media screen and (max-width: @widthM) {
+                    margin: 0 0 0 185px;
+                }
+            }
+
+            #btnSearch {
+                float: right;
+                width: 300px;
+                height: 48px;
+                color: @white;
+                background-color: @red;
+                border: none;
+                border-radius: 3px;
+                margin-top: 6px;
+                font-size: 17px;
+                font-weight: bold;
+                cursor: pointer;
+                outline: none;
+                text-transform: uppercase;
+
+                @media screen and (min-width: (@widthM + 1px)) and (max-width: @widthL) {
+                    float: none;
+                    margin-top: 0;
+                }
+
+                @media screen and (max-width: @widthM) {
+                    float: left;
+                    margin-top: 20px;
+                    width: 408px;
+                }
+            }
+        }
+    }
+}
