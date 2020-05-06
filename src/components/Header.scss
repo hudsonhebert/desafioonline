@@ -1,0 +1,16 @@
+@import '../Config';
+
+#logo {
+    margin-top: 18px;
+    width: $logoW;
+    height: $logoH;
+
+    @media screen and (min-width: ($widthS + 1px)) and (max-width: $widthL) {
+        margin-left: 5%;
+    }
+
+    @media screen and (max-width: $widthS) {
+        display: block;
+        margin: 20px auto;
+    }
+}

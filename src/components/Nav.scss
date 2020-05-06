@@ -1,0 +1,106 @@
+@import '../Config';
+
+#box {
+    display: flex;
+    flex-wrap: wrap;
+    width: $boxW;
+    height: $boxH;
+    margin-top: 28px;
+    
+    nav {
+        display: flex;
+        width: 100%;
+
+        @media screen and (max-width: $widthS) {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: $widthL) {
+        width: 90%;
+        height: auto;
+        margin-left: 5%;
+    }
+
+    ul {
+        display: flex;
+        flex-grow: 1;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @media screen and (max-width: $widthS) {
+            display: block;
+        }
+
+        li {
+            padding-top: 24px;
+            height: 74px - 24px;
+            border-bottom: 1px $mediumgray solid;
+            text-transform: uppercase;
+            color: $gray;
+            font-size: 11px;
+            background-color: $lightgray;
+            cursor: pointer;
+
+            &:nth-child(1) {
+                background: url("../img/icon-car.png") 17px 41px no-repeat;
+                padding-left: 70px;
+                width: 107px;
+            }
+
+            &:nth-child(2) {
+                background: url("../img/icon-bike.png") 16px 38px no-repeat;
+                padding-left: 58px;
+                width: 92px;
+            }
+
+            &:nth-child(1),
+            &:nth-child(2) {
+                @media screen and (max-width: $widthS) {
+                    display: block;
+                    padding-left: 0;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+
+            b {
+                font-size: 21px;
+                font-weight: 400;
+                display: block;
+            }
+
+            &.active {
+                height: 71px - 24px;
+                border-bottom: 4px $red solid;
+                cursor: default;
+
+                b {
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    #btnSell {
+        width: 188px;
+        height: 37px;
+        margin-bottom: 16px;
+        color: $orange;
+        background-color: $lightgray;
+        border: 2px $orange solid;
+        border-radius: 3px;
+        align-self: flex-end;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+
+        @media screen and (max-width: $widthS) {
+            width: 100%;
+            margin-top: 16px;
+        }
+
+    }
+}
