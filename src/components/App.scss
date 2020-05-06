@@ -1,0 +1,19 @@
+@import 'normalize.css/normalize';
+@import '../Config';
+
+* {
+    font-family: $font;
+}
+
+body {
+    width: 100%;
+    min-width: $widthXS;
+    display: flex;
+    justify-content: center;
+    background-color: $lightgray;
+}
+
+#root,
+#app {
+    width: auto;
+}
